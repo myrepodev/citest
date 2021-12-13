@@ -1,0 +1,14 @@
+on: push
+name: Run Tests on Push
+
+jobs:
+  tests:
+    # This is our tests job.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone & checkout repo to current commit
+      uses: actions/checkout@v1
+      - name: Install Dependencies
+        run: yarn install
+      - name: Run tests
+        run: yarn test
